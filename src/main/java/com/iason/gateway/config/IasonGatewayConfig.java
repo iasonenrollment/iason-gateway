@@ -31,6 +31,10 @@ public class IasonGatewayConfig {
                 .route(r->r.path("/api/v1/iason/welcome*", "/api/v1/iason/welcome/")
                         .uri("lb://iason-aca-intake")
                         .id("enrollment-generation"))
+                .route(r -> r.path("/trading-partners*","/trading-partners/",
+                        "/hello-trading-partner/","/hello-trading-partner*")
+                            .uri("lb://iason-administration-service")
+                            .id("iason-administration-service"))
                 .build();
     }
 }
